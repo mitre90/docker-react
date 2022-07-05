@@ -1,0 +1,10 @@
+lenguage: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mitre90/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true mitre90/docker-react npm run test
